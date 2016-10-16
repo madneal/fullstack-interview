@@ -48,7 +48,13 @@
 }
 ```
 
-5. document.write和innerHtml有什么区别
+5.document.write和innerHtml有什么区别
+
+document.write是直接写入到页面的内容流，如果在写之前没有调用documen.open，浏览器自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。
+
+innerHTML则是页面元素的一个属性，代表该元素的html内容。你可以精确到一个具体的元素来进行修改。
+
+innerHTML很多情况优于document.write，其原因在于其允许更精确的控制要刷新页面的一个部分。
 
 # 性能篇
 
