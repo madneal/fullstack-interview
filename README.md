@@ -56,6 +56,8 @@ innerHTML则是页面元素的一个属性，代表该元素的html内容。你�
 
 innerHTML很多情况优于document.write，其原因在于其允许更精确的控制要刷新页面的一个部分。
 
+6. 实现一个flatten函数
+
 # 性能篇
 
 1. 为什么要对js文件进行打包
