@@ -4,6 +4,6 @@ Good afternoon, everyone. It's my pleasure to intriduce myself. My name is Dong 
 
 I have been worked as the front-end intern at OOCL since from April this year. I have attended two projects including transportation management system and port information crawler. I am responsible for the development of two modules of TMS. For the port information crawler, I am the main developer.
 
-I like stydying and sharing technology knowledge during my spare time. I have a self-website to display my project demos. And I have a blog that has more than 26,000 visitors.
+I like stydying and sharing technical knowledge during my spare time. I have a self-website to display my project demos. And I have a blog that has more than 26,000 visitors.
 
 Thanks for your listening.
