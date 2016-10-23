@@ -4,6 +4,6 @@ Good afternoon, everyone. My name is Dong Bing. I am a postgraduate student from
 
 I have been worked as the front-end developer at OOCL since from april this year. I have attended two projects including transportation management system and port information crawler. I am responsible for the development of two modules of TMS. For the port information crawler, I am the main developer.
 
-And I like stydying and sharing during my spare time. I have a self-website to display my project demos. And I have a CSDN blog that has more 26,000 visitors.
+And I like stydying and sharing during my spare time. I have a self-website to display my project demos. And I have a CSDN blog that has more than 26,000 visitors.
 
 Thanks for your listening.
