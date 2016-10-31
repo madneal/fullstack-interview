@@ -596,3 +596,149 @@ public class Solution {
 }
 ```
 
+## 22. BFS tree serialize and deserialize
+
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+	// write your code here
+        TreeNode a = new TreeNode("5");
+        TreeNode b = new TreeNode("2");
+        TreeNode c = new TreeNode("3");
+        TreeNode d = new TreeNode("4");
+        TreeNode e = new TreeNode("1");
+        a.left = b;
+        a.right = c;
+        c.left = d;
+        c.right = e;
+        String str = "5,2,3,#,#,1,4";
+        TreeNode node = deserialize(str);
+        serialize(node);
+
+    }
+
+    public static class TreeNode {
+        String val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode (String x) {
+            val = x;
+        }
+    }
+
+    public static String serialize(TreeNode root) {
+        String result = "";
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.add(root);
+        TreeNode node = null;
+        while (!q.isEmpty()) {
+            node = q.remove();
+            result += node.val;
+            if (node.left != null) {
+                q.add(node.left);
+            }
+            if (node.right != null) {
+                q.add(node.right);
+            }
+        }
+        return result;
+    }
+
+    public static TreeNode deserialize(String data) {
+        Deque<String> nodes = new LinkedList<>();
+        nodes.addAll(Arrays.asList(data.split(",")));
+        return buildTree(nodes);
+    }
+
+    private static TreeNode buildTree(Deque<String> nodes) {
+        String val = nodes.remove();
+        if (val.equals("#")) {
+            return null;
+        } else {
+            TreeNode node = new TreeNode(val);
+            node.left = buildTree(nodes);
+            node.right = buildTree(nodes);
+            return node;
+        }
+    }
+}
+```
+
+## 23. Judges whether same of two trees
+
+```java
+public bool isSame(TreeNode root1, TreeNode root2) {
+  if (root1 == null && root2 == null) {
+    return true;
+  }
+  if(root1 != null || root2 != null) {
+    return false;
+  }
+  return (root1.val == root2.val) && isSame(root1.left, root2.left) && isSame(root1.right, root2.right);
+}
+```
+
+## 24.Obtain the mirror tree
+
+```java
+public void obtainMirrorTree(TreeNode root) {
+  if (root == null) {
+    return;
+  }
+  if (root.left == null && root.right == null) {
+    return;
+  }
+  TreeNode temp = root.left;
+  root.left = root.right;
+  root.right = temp;
+  obtainMirrorTree(root.left);
+  obtainMirrorTree(root.right);
+}
+```
+
+## 25.Lowest common ancestor of a binary search tree
+
+```java
+public TreeNode search(TreeNode root, TreeNode p, TreeNode q) {
+  if (root.val > p.val && root.val > q.val) {
+    return search(root.left, p, q);
+  } else if (root.val < p.val && root.val < q.val) {
+    return search(root.right, p, q);
+  } else {
+    return root;
+  }
+}
+```
+
+## 26. Lowest common ancestor of a binary tree
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == p || root == q || root == null) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left != null && right != null) {
+            return root;
+        }
+        if (left != null) {
+            return left;
+        } else {
+            return right;
+        }
+    }
+}
+```
+
