@@ -189,3 +189,208 @@ public class Solution {
 }
 ```
 
+## 7.Path sum
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public boolean hasPathSum(TreeNode root, int sum) {
+        if (root == null) {
+            return false;
+        }
+        if (root.left == null && root.right == null && root.val - sum == 0) {
+            return true;
+        }
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+        
+    }
+}
+```
+
+## 8.Path sumII
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        pathSum(root, sum, result, list);
+        return result;
+    }
+    
+    private void pathSum(TreeNode root, int sum, List<List<Integer>> result, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        if (root.left == null && root.right == null && sum - root.val == 0) {
+            result.add(new ArrayList(list));
+        } else {
+            pathSum(root.left, sum - root.val, result, list);
+            pathSum(root.right, sum - root.val, result, list);
+        }
+        list.remove(list.size() - 1);
+    }
+}
+```
+
+## 9.Path sum III
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int pathSum(TreeNode root, int sum) {
+        if (root == null) {
+            return 0;
+        }
+        return findPath(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    }
+    
+    private int findPath(TreeNode root, int sum) {
+        int res = 0;
+        if (root == null) {
+            return res;
+        }
+        if (root.val == sum) {
+            res ++;
+        }
+        res += findPath(root.left, sum - root.val);
+        res += findPath(root.right, sum - root.val);
+        return res;
+    }
+}
+```
+
+## 10. Sum of left leaves
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        int ans = 0;
+        if (root == null) {
+            return 0;
+        } 
+        if (root.left != null) {
+            if (root.left.left == null && root.left.right == null) {
+                ans += root.left.val;
+            } else {
+                ans += sumOfLeftLeaves(root.left);
+            }
+        }
+        if (root.right != null) {
+            ans += sumOfLeftLeaves(root.right);
+        }
+        return ans;
+    }
+}
+```
+
+## 11.First Unique character in a string
+
+```java
+public class Solution {
+    public int firstUniqChar(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        int n = s.length();
+        for (int i = 0; i < n; i ++) {
+            char ele = s.charAt(i);
+            if (map.get(ele) == null) {
+                map.put(ele, 1);
+            } else {
+                map.put(ele, map.get(ele) + 1);
+            }
+        }
+        Iterator it = map.entrySet().iterator();
+        for (int j = 0; j < n; j++) {
+            if (map.get(s.charAt(j)) == 1) {
+                return j;
+            }
+        }
+    return -1;
+    }
+}
+```
+
+## 12. Two sum
+
+```java
+public class Solution {
+  public int[] twoSum(int[] nums, int target) {
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    int[] result = new int[2];
+    int len = nums.length;
+    for (int i = 0; i < len; i ++) {
+      if (map.containsKey(target - nums[i])) {
+        result[0] = map.get(target - nums[i]);
+        result[1] = i;
+        return result;
+      } else {
+        map.put(nums[i], i);
+      }
+    }
+    return result;
+  }
+}
+```
+
+## 13.Two sum II - input array is sorted
+
+```
+public class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int[] indices = new int[2];
+        if (numbers == null || numbers.length < 2) {
+            return indices;
+        }
+        int left = 0, right = numbers.length - 1;
+        while (left < right) {
+            int v = numbers[left] + numbers[right];
+            if (v == target) {
+                indices[0] = left + 1;
+                indices[1] = right + 1;
+                break;
+            } else if (v > target) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return indices;
+    }
+}
+```
+
