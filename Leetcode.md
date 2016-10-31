@@ -563,3 +563,36 @@ public class Solution {
 }
 ```
 
+## 21.[Find the duplicate number](https://leetcode.com/problems/find-the-duplicate-number/)
+
+```java
+public class Solution {
+    public int findDuplicate(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
+        }
+        int len = nums.length;
+        int low = 1;
+        int high = len - 1;
+        int mid;
+        int count = 0;
+        while (low < high) {
+            mid = low + (high - low)/2;
+            for (int x : nums) {
+                if (x <= mid) {
+                    count ++;
+                }
+            }
+            if (count > mid) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+            count = 0;
+        }
+        return low;
+        
+    }
+}
+```
+
