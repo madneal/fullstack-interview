@@ -369,7 +369,7 @@ public class Solution {
 
 ## 13.Two sum II - input array is sorted
 
-```
+```java
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int[] indices = new int[2];
