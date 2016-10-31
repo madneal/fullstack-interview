@@ -394,3 +394,172 @@ public class Solution {
 }
 ```
 
+## 14. Minimum size subarray sum
+
+```java
+public class Solution {
+    public int minSubArrayLen(int s, int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int i = 0, j = 0, sum = 0, min = Integer.MAX_VALUE;
+        while (j < nums.length) {
+            sum += nums[j++];
+            while (sum >= s) {
+                min = Math.min(min, j-i);
+                sum -= nums[i++];
+            }
+        }
+        return min == Integer.MAX_VALUE ? 0 : min;
+    }
+}
+```
+
+## 15.Combination sum
+
+```java
+public class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        getResult(result, new ArrayList<Integer>(), candidates, target, 0);
+        return result;
+    }
+    
+    private void getResult(List<List<Integer>> result, List<Integer> cur, int[] candidates, int target, int start) {
+        if (target > 0) {
+            for (int i = start; i < candidates.length && target >= candidates[i]; i ++) {
+                cur.add(candidates[i]);
+                getResult(result, cur, candidates, target - candidates[i], i);
+                cur.remove(cur.size() - 1);
+            }
+        } else if (target == 0) {
+            result.add(new ArrayList(cur));
+        } else {
+            return;
+        }
+    }
+}
+```
+
+## 16.Combination sum II
+
+```java
+public class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> result = new ArrayList();
+        getResult(result, new ArrayList(), candidates,target, 0);
+        return result;
+    }
+    
+    private void getResult(List<List<Integer>> result, List<Integer> cur, int[] candidates, int target, int start) {
+        if (target < 0) {
+            return;
+        } else if (target == 0) {
+            result.add(new ArrayList(cur));
+        } else {
+            for (int i = start; i < candidates.length; i ++) {
+                if (i > start && candidates[i] == candidates[i-1]) {
+                    continue;
+                }
+                cur.add(candidates[i]);
+                getResult(result, cur, candidates, target - candidates[i], i + 1);
+                cur.remove(cur.size() - 1);
+            }
+        }
+    }
+}
+```
+
+## 17.Combination sum III
+
+```java
+public class Solution {
+    public List<List<Integer>> combinationSum3(int k, int n) {
+        List<List<Integer>> ans = new ArrayList();
+        combination(ans, new ArrayList<Integer>(), k, 1 ,n);
+        return ans;
+    }
+    
+    private void combination(List<List<Integer>> ans, List<Integer> combo, int k, int start, int n) {
+        if (combo.size() == k && n == 0) {
+            List<Integer> li = new ArrayList(combo);
+            ans.add(li);
+            return;
+        }
+        
+        for (int i = start; i <= 9; i++) {
+            combo.add(i);
+            combination(ans, combo, k, i+1, n-i);
+            combo.remove(combo.size()-1);
+        }
+    }
+}
+```
+
+## 18.Combination sum IV
+
+```java
+public class Solution {
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    public int combinationSum4(int[] nums, int target) {
+        if (nums == null || target < 0 || nums.length == 0) {
+            return 0;
+        }
+        if (target == 0) {
+            return 1;
+        }
+        int count = 0;
+        if (map.containsKey(target)) {
+            return map.get(target);
+        }
+        for (int num : nums) {
+            count += combinationSum4(nums, target - num);
+        }
+        map.put(target, count);
+        return count;
+    }
+}
+```
+
+## 19.Integer break
+
+```java
+public class Solution {
+    public int integerBreak(int n) {
+        if(n==2) return 1;
+        if(n==3) return 2;
+        int product = 1;
+        while(n>4){
+            product*=3;
+            n-=3;
+        }
+        product*=n;
+        
+        return product;
+    }
+}
+```
+
+## 20.Product of array except self
+
+```java
+public class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        res[0] = 1;
+        for (int i = 1;i < n;i++) {
+            res[i] = res[i-1] * nums[i-1];
+        }
+        int right = 1;
+        for (int j = n -1;j >= 0;j--) {
+            res[j] *= right;
+            right *= nums[j];
+        }
+        return res;
+    }
+}
+```
+
