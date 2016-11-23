@@ -763,3 +763,26 @@ public class Solution {
     }
 ```
 
+## 28.[Find all numbers disappeared in an array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
+
+```java
+public class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> result = new ArrayList<Integer>();
+        int len = nums.length;
+        for (int i = 0; i <len; i++) {
+            int val = Math.abs(nums[i]) - 1;
+            if (nums[val] > 0) {
+                nums[val] = -nums[val];
+            }
+        }
+        for (int j = 0; j < len; j++) {
+            if (nums[j] > 0) {
+                result.add(j + 1);
+            }
+        }
+        return result;
+    }
+}
+```
+
