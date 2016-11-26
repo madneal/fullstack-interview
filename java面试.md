@@ -48,3 +48,36 @@ for(条件1;条件2;条件3) ｛
 
 执行顺序：条件1＝》条件2=》语句＝》条件3=》条件2=》语句＝》条件3.。。
 
+## 5.Object有哪些方法
+
+public方法：getClass, equals, hashCode, toString, t, notify
+
+protected方法：clone, finalize
+
+private方法：registerNatives
+
+## 6.单例模式
+
+单例模式保证只有一个实力存在。有时候单例是为了避免重复创建多个单例造成资源浪费，有时候也是为了避免多个不同的单例导致系统不一致的行为。
+
+```
+Class Singleton {
+  private volatile static Singleton instance;
+  
+  private Singleton() {}
+  
+  public static Singleton getInstance() {
+    if (instance == null) {
+      synchronized (Singleton.class) {
+        if (instance == null) {
+          instance = new Singleton();
+        }
+      }
+    }
+    return instance;
+  }
+}
+```
+
+
+
