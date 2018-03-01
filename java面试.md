@@ -14,7 +14,7 @@
 
 4. 任务队列：用于存放没有处理的任务，提供一种缓存机制。
 
-## java Thread中run和start的区别
+## java Thread 中 ru n和 start 的区别
 
 1.start方法
 
@@ -38,7 +38,7 @@ run方法只是类的一个普通方法而已，如果直接调用Run方法，�
 
 6）执行子类的构造函数
 
-## for循环执行顺序
+## for 循环执行顺序
 
 for(条件1;条件2;条件3) ｛
 
@@ -48,7 +48,7 @@ for(条件1;条件2;条件3) ｛
 
 执行顺序：条件1＝》条件2=》语句＝》条件3=》条件2=》语句＝》条件3.。。
 
-## Object有哪些方法
+## Object 有哪些方法
 
 public方法：getClass, equals, hashCode, toString, t, notify
 
