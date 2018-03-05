@@ -80,3 +80,9 @@ Class Singleton {
 
 * HashMap允许键和值是null，HashTable则不允许
 * HashTable是同步的，而HashMap则不是，因此，HashMap更适合单线程环境
+
+## ArrayList 和 LinkedList 的区别
+* 对两者而言，在列尾末尾增加一个元素所花的开销都是固定的。
+* 在 ArrayList 的中间插入或删除一个元素意味着列表剩余的元素都需要移动；而在 LinkedList 中间插入或者删除一个元素的开销都是固定的。
+* LinkedList 不支持高效的随机元素访问。
+* ArrayList 的空间浪费主要是在结尾预留一定的空间，而 LinkedList 的空间花费体现在每一个元素的开销。
