@@ -1,5 +1,22 @@
 # Leetcode
 
+## [Triangle](https://leetcode.com/problems/triangle/description/)
+
+```go
+func minimumTotal([][]int triangle) int {
+	rowNum := len(triangle)
+	var minpath int
+	for i := rowNum - 2; i >= 0; i-- {
+		nextRow = triangle[i + 1]
+		for j := o; i <=i; j++ {
+			minpath = int(math.Min(float64(nextRow[j]), float64(nextRow[j + 1))) + triangle[i][j]
+			trinangle[i][j] = minpath
+		}
+	}
+	return triangle[0][0]
+}
+```
+
 ## 1.Serialize and deserialize binary tree
 
 ```java
