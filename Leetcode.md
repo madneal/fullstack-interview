@@ -1,5 +1,55 @@
 # Leetcode
 
+## [Add Binary](https://leetcode.com/problems/add-binary/description/)
+
+```go
+func max(a,b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
+}
+
+func addBinary(a string, b string) string {
+	m := len(a)
+	n := len(b)
+	maxLen := max(m, n)
+	carry := 0
+	res := ""
+	
+	for i := 0; i < maxLen; i++ {
+		var p int 
+		var q int
+		if i < m {
+			p, _ = strconv.Atoi(string(a[m - i - 1])) 
+		} else {
+			p = 0
+		}
+		
+		if i < n {
+			q, _ = strconv.Atoi(string(b[n -i -1]))
+		} else {
+			q = 0
+		}
+		temp := p + q + carry
+		res = strconv.Itoa(temp % 2) + res
+		if temp > 1 {
+			carry = 1
+		} else {
+			carry = 0
+		}
+	}
+	
+	if carry == 0 {
+		return res
+	} else {
+		return "1" + res
+	}
+}
+
+```
+
 ## [Triangle](https://leetcode.com/problems/triangle/description/)
 
 ```go
