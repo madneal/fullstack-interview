@@ -1,5 +1,37 @@
 # Leetcode
 
+## [Coin Change](https://leetcode.com/problems/coin-change/description/)
+
+```go
+func coninChnage([]int coins, amount int) {
+	if amount < 1 {
+		return 0
+	}
+	dp := make(int[], amount + 1)
+	
+	coins = sotr.Ints(coins)
+	sum := 1
+	
+	for (sum <= amount) {
+		min := -1
+		for _, coin := range coins {
+			if sum < coin {
+				break
+			}
+			temp = dp[sum - coin] + 1
+			if min < 0 {
+				min = temp
+			} else {
+				min = int(math.Min(float64(temp), float64(min)))
+			}
+		}
+		dp[sum] = min
+		sum ++
+	}
+	return dp[amount]
+}
+```
+
 ## [Add Binary](https://leetcode.com/problems/add-binary/description/)
 
 ```go
