@@ -1,5 +1,24 @@
 # Leetcode
 
+## [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/description/)
+
+```go
+func singleNonDuplicate(nums []int) int {
+	n := len(nums)
+	low := 0
+	high := n / 2
+	for (low < high) {
+		m := (low + high) / 2
+		if nums[2 * m] != nums[2 * m + 1] {
+			high = m
+		} else {
+			low = m + 1
+		}
+	}
+	return nums[2 * low]
+}
+```
+
 ## [Coin Change](https://leetcode.com/problems/coin-change/description/)
 
 ```go
