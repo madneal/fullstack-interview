@@ -1,5 +1,29 @@
 # Leetcode
 
+## [Combinations](https://leetcode.com/problems/combinations/description/)
+
+```java
+public List<List<Integet>> combine(int n, int k) {
+	List<List<Integer>> result = new ArrayList<List<Integer>>();
+	List<Integer> temp = new ArrayList<Integer>();
+	dfs(result, temp, k, 1, n);
+	return result;
+}
+
+public dfs(List<List<Integer>> result, List<Integer> temp, int k, int from, int to) {
+	if (k == 0) {
+		result.add(new ArrayList<Integer>(temp);
+		return;
+	}
+	
+	for (int i = from; i <= to; i++) {
+		temp.add(i);
+		dfs(result, temp, k - 1, from + 1, to + 1);
+		temp.remove(temp.size() - 1);
+	}
+}
+```
+
 ## [Largest Number](https://leetcode.com/problems/largest-number/description/)
 
 ```java
