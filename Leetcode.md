@@ -1,5 +1,43 @@
 # Leetcode
 
+## [Word Search](https://leetcode.com/problems/word-search/description/)
+
+```go
+func exist(board [][]byte, word string) {
+	w := []byte(word)
+	for y := 0; y < len(board); y++ {
+		for x :=0; x < len(board[0]); x++ {
+			if exist1(board, w, x, y, 0) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func exist1(board [][]byte, word []byte, x, y, index int) {
+	if index == len(word) {
+		return true
+	}
+	
+	if x < 0 || y < 0 || x = len(board[0]) || y == len(board) {
+		return false
+	}
+	
+	if board[y][x] != word[index] {
+		return false
+	}
+	
+	board[y][x] = '*'
+	result = exist1(board, word, x + 1, y, index + 1) ||
+		exist1(board, word, x - 1, y, index + 1) ||
+		exist1(board, word, x, y + 1, index + 1) ||
+		exist1(board, word, x, y - 1, index + 1)
+	board[y][x] = word[index]
+	return result
+}
+```
+
 ## [Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/)
 
 ```go
