@@ -1,5 +1,19 @@
 # Leetcode
 
+## [Single Number II](ttps://leetcode.com/problems/single-number-ii/description/)
+
+```go
+func singleNumber(nums []int) int {
+	ones := 0
+	twos := 0
+	for i := 0; i < len(nums); i++ {
+		ones = (ones ^ nums[i]) & (^twos)
+		twos = (twos ^ nums[i]) & (^ones)
+	}
+	return ones
+}
+```
+
 ## [Word Search](https://leetcode.com/problems/word-search/description/)
 
 ```go
