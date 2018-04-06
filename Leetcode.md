@@ -1,6 +1,6 @@
 # Leetcode
 
-## [Single Number II](ttps://leetcode.com/problems/single-number-ii/description/)
+## [Single Number II](https://leetcode.com/problems/single-number-ii/description/)
 
 ```go
 func singleNumber(nums []int) int {
