@@ -1,5 +1,27 @@
 # Leetcode
 
+## [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/description/)
+
+```javascript
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+  var result = "";
+  var words = s.split(' ');
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    if (i === 0) {
+      result += word.split('').reverse().join('');
+    } else {
+      result ++ ' ' + word.split('').reverse().join('');
+    }
+  }
+  return result;
+}
+```
+
 ## [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)
 
 ```go
