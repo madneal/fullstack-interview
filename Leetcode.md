@@ -8,42 +8,21 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  if (s[0] === '}' || s[0] === ']' || s[0] === ')') {
-    return false;
-  }
   var stack = [];
   
-  for (var i = 0; i < s.length; i++) {
-    var ele = s[i];
+  for (var i = 0; i < s.length; i++） {
+    var ele = s[i];
     
-    if (ele === '{' || ele === '[' || ele === '(') {
-      stack.push(ele);
-    } else {
-      if (stack.length === 0) {
-        return false;
-      }
-      
-      var stackTop = stack.pop();
-      
-      if (stackTop === '(' && ele !== ')') {
-        return false;
-      }
-      
-      if (stackTop === '[' && ele !== ']') {
-        return false;
-      }
-      
-      if (stackTop === '{' && ele !== '}') {
-        return false;
-      }
+    if (ele === '(') {
+      stack.push(')');
+    } else if (ele === '{') {
+      stack.push('}');
+    } else if (ele === '[') {
+      stack.push(']');
+    } else if (stack.length === 0 || stack.pop() !== ele) {
+      return false;
     }
-  }
-  
-  if (stackTop.length == 0) {
-    return true;
-  } else {
-    return false;
-  }
+    return stack.length === 0;
 }
 ```
 
