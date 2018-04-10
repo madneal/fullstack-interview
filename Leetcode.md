@@ -1,5 +1,52 @@
 # Leetcode
 
+## [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
+
+```javascript
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+  if (s[0] === '}' || s[0] === ']' || s[0] === ')') {
+    return false;
+  }
+  var stack = [];
+  
+  for (var i = 0; i < s.length; i++) {
+    var ele = s[i];
+    
+    if (ele === '{' || ele === '[' || ele === '(') {
+      stack.push(ele);
+    } else {
+      if (stack.length === 0) {
+        return false;
+      }
+      
+      var stackTop = stack.pop();
+      
+      if (stackTop === '(' && ele !== ')') {
+        return false;
+      }
+      
+      if (stackTop === '[' && ele !== ']') {
+        return false;
+      }
+      
+      if (stackTop === '{' && ele !== '}') {
+        return false;
+      }
+    }
+  }
+  
+  if (stackTop.length == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+
 ## [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/description/)
 
 ```javascript
