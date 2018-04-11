@@ -1,5 +1,37 @@
 # Leetcode
 
+## [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
+
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function(root) {
+  var stack = [];
+  var result = [];
+  var cur = root;
+  while (cur !== null || stack.length !== 0) {
+    if (cur !== null) {
+      stack.push(cur);
+      cur = cur.left;
+    } else {
+      cur = stack.pop();
+      result.push(cur.val);
+      cur = cur.right;
+    }
+  }
+  return result;
+}
+```
+
 ## [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
 
 ```go
