@@ -1,5 +1,39 @@
 # Leetcode
 
+## [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
+
+```java
+public List<List<Integer>> levelOrderBottom(TreeNode root) {
+  List<List<Integer>> result = new ArrayList<List<Integer>>();
+  if (root == null) {
+    return result;
+  }
+  List<TreeNode> currentLevel = new ArrayList<TreeNode>();
+  currentLevel.add(root);
+  
+  while (currentLevel.size() != 0) {
+    List<Integer> valueList = new ArrayList<Integer>();
+    List<TreeNode> nextLevel = new ArrayList<TreeNode();
+    
+    for (int i = 0; i < currentLevel.size(); i++) {
+      TreeNode node = currentLevel.get(i);
+      valueList.add(node.val);
+      if (node.left != null) {
+        nextLevel.add(node.left);
+      }
+      
+      if (node.right != null) {
+        nextLevel.add(node.right);
+      }
+    }
+    result.add(valueList);
+    currentLevel = nextLevel;
+  }
+  Collections.reverse(result);
+  return result;
+}
+```
+
 ## [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
 
 ```javascript
