@@ -1,5 +1,25 @@
 # Leetcode
 
+## [Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
+
+```java
+public int jump(int[] nums) {
+  int step = 0;
+  int lastMax = 0; 
+  int currentMax = 0;
+  
+  for (int i = 0; i < nums.length - 1; i++) {
+    currentMax = Math.max(currentMax, i + nums[i]);
+    if (i == lastMax) {
+      step++;
+      currentMax = lastMax;
+    }
+  }
+  return step;
+}
+```
+    
+
 ## [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
 
 ```java
