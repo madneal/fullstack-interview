@@ -1,5 +1,32 @@
 # Leetcode
 
+## [Contiguous Array](https://leetcode.com/problems/contiguous-array/description/)
+
+```go 
+func findMaxLength(nums []int) int {
+  for i := 0; i < len(nums); i++ {
+    if nums[i] == 0 {
+      nums[i] = -1
+    }
+  }
+  sumToIndex := make(map[int]int, 0)
+  sum := 0
+  max := 0
+  
+  for i := 0; i < len(nums); i++ {
+    sum += nums[i]
+    if _, ok := sumToIndex[sum]; ok {
+      if max < i - sumToIndex[sum] {
+        max = i - sumToIndex[sum]
+      }
+    } else {
+      sumToIndex[sum] = i
+    }
+  }
+  return max
+}
+```
+
 ## [Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
 
 ```java
