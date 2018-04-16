@@ -1,5 +1,24 @@
 # Leetcode
 
+## [Same Tree](https://leetcode.com/problems/same-tree/description/)
+
+```go 
+func isSameTree(p *TreeNode, q *TreeNode) {
+  if p == nil && q == nil {
+    return true
+  }
+  
+  if p == nil || q == nil {
+    return false
+  }
+  
+  if p.Val == q.Val {
+    return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+  }
+  return false
+}
+```
+
 ## [Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal/description/)
 
 ```java
