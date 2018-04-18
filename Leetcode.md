@@ -1,5 +1,27 @@
 # Leetcode
 
+## [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/description/)
+
+```javascript
+var findRepeatedDnaSequences = function(s) {
+  var hash = {};
+  var result = [];
+  for (var i = 0; i < s.length; i++) {
+    var key = s.substring(i, i + 10);
+    if (!hash[key]) {
+      hash[key] = 1;
+    } else {
+      if (hash[key] < 2) {
+        result.push(key);
+      }
+      hash[key]++;
+    }
+  }
+  return result;
+}
+```
+
+
 ## [Same Tree](https://leetcode.com/problems/same-tree/description/)
 
 ```go 
