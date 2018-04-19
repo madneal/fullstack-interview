@@ -1,5 +1,47 @@
 # Leetcode
 
+## [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/description/)
+
+```javascript
+var findAnagrams = function(s, p) {
+  var hash = {};
+  
+  for (var i = 0; i < p.length; i++) {
+    if (!hash[p[i]) {
+      hash[p[i]] = 1;
+    } else {
+      hash[p[i]]++;
+    }
+  }
+  
+  var left = 0;
+  var right = 0;
+  var count = p.length;
+  var result = [];
+  
+  while (right < s.length) {
+    if (hash[p[right] >= 1) {
+      count--;
+    }
+    hash[p[right]]--;
+    right--;
+    
+    if (count === 0) {
+      result.push(left);
+    }
+    
+    if (right - left === p.length) {
+      if (hash[p.left] >= 0) {
+        count++;
+      }
+      hash[p[right]]++;
+      left++;
+    }
+  }
+  return result;
+}
+```
+
 ## [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/description/)
 
 ```javascript
