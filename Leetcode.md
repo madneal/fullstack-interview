@@ -1,5 +1,28 @@
 # Leetcode
 
+## [Partition List](https://leetcode.com/problems/partition-list/description/)
+
+```java
+public ListNode partition(ListNode head, int x) {
+  ListNode node0 = new ListNode(0);
+  ListNode node1 = new ListNode(0);
+  ListNode headSmaller = node0;
+  ListNode headGreater = node1;
+  while (head != null) {
+    if (head.val < x) {
+      headSmaller.next = head;
+      headSmaller = head;
+    } else {
+      headGreater.next = head;
+      headGreater = head;
+    }
+  }
+  headGreater.next = null;
+  headSmaller.next = node1.next;
+  return node0.next;
+}
+```
+
 ## [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/description/)
 
 ```javascript
