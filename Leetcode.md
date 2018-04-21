@@ -1,5 +1,34 @@
 # Leetcode
 
+## [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
+
+```go 
+func buildTree(preorder []int, inorder []int) *TreeNode {
+  if len(preorder) != len(inorder) {
+    return nil
+  }
+  return build(preorder, inorder, 0, len(preorder) - 1, 0, len(inorder) -1)
+}
+
+func build(preorder, inorder []int, prelow, prehigh, inlow, inhigh int) *TreeNode {
+  if prelow > prehigh || inlow > inhigh {
+    return nil 
+  }
+  var root *TreeNode = &TreeNode{preorder[prelow], nil, nil}
+  inorderRoot := inlow
+  for i := inlow; i <= inhigh; i++ {
+    if inorder[i] == root.Val {
+      inorderRoot = i
+      break
+    }
+  }
+  inorderLen := inorderRoot - inlow
+  root.Left = build(preorder, inorder, prelow + 1, prelow + inorderLen, inlow, inorderRoot - 1)
+  root.Right = build(preorder, inorder, prelow + inorderLen + 1, prehigh, inorderRoot + 1, inhigh)
+  return root
+}
+```
+
 ## [Partition List](https://leetcode.com/problems/partition-list/description/)
 
 ```java
