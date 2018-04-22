@@ -1,5 +1,22 @@
 # Leetcode
 
+## [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/description/)
+
+```javascript
+var findLengthOfLCIS = function(nums) {
+  var res = 0;
+  var cnt = 0;
+  for (var i = 0; i < nums.length; i++) {
+    if (i == 0 || nums[i - 1] < nums[i]) {
+      res = Math.max(res, ++cnt);
+    } else {
+      cnt = 1;
+    }
+  }
+  return res;
+}
+```
+
 ## [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/)
 
 ```go 
