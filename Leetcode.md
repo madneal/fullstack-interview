@@ -1,5 +1,21 @@
 # Leetcode
 
+## [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/)
+
+```go 
+func findDuplicates(nums []int) []int {
+  result := make([]int, 0)
+  for _, num := range nums {
+    index := int(math.Abs(float64(num))) - 1
+    if nums[index] < 0 {
+      result = append(result, index + 1)
+    }
+    nums[index] = -nums[index]
+  }
+  return result
+}
+```
+   
 ## [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
 
 ```go 
