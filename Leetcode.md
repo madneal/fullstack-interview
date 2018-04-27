@@ -1,5 +1,22 @@
 # Leetcode
 
+## [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/description/)
+
+```java
+public TreeNode invertTree(TreeNode root) {
+  if (root == null) {
+    return null;
+  } else {
+    TreeNode tem = root.left;
+    root.left = root.right;
+    root.right = tem;
+  }
+  root.left = invertTree(root.left);
+  root.right = invertTree(root.right);
+  return root;
+}
+```
+
 ## [Maximal Square](https://leetcode.com/problems/maximal-square/description/)
 
 ```java
