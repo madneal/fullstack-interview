@@ -1,5 +1,22 @@
 # Leetcode
 
+## [Beautiful Arrangement II](https://leetcode.com/problems/beautiful-arrangement-ii/description/)
+
+```java
+public int[] constructArray(int n, int k) {
+  int res = new int[n];
+  int left = 1;
+  int right = n;
+  for (int i = 0; i < n; i++) {
+    res[i] = K % 2 != 0 ? left++ : right--;
+    if (k > 1) {
+      k--;
+    }
+  }
+  return res;
+}
+```
+
 ## [Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/description/)
 
 ```java
