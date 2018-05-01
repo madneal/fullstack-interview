@@ -1,5 +1,30 @@
 # Leetcode
 
+## [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
+
+```java
+public List<String> generateParenthesis(int n) {
+  List<String> result = new ArrayList<String>();
+  backtrack(result, "", 0, 0, n);
+  return result;
+}
+
+private void backtrack(List<String> result, String str, int open, int close, int max) {
+  if (str.length() == 2 * max) {
+    result.add(str);
+    return;
+  }
+  
+  if (open < max) {
+    backtrack(result, str + "(", open + 1, close, max);
+  }
+  
+  if (close < open) {
+    backtrack(result, str + ")", open, close + 1, max);
+  }
+}
+```
+
 ## [Beautiful Arrangement II](https://leetcode.com/problems/beautiful-arrangement-ii/description/)
 
 ```java
