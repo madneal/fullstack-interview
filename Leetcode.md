@@ -1,5 +1,46 @@
 # Leetcode
 
+## [Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/description/)
+
+```java
+public int[] shortestToChar(String S, Char C) {
+  List<Integer> aux = new ArrayList<Integer>();
+  for (int i = 0; i < s.length(); i++) {
+    if (S.charAt(i) == C) {
+      aux.add(i);
+    }
+  }
+  int[] res = new int[S.length()];
+  for (int = 0; i < S.length(); i++) {
+    res[i] = (int) Math.abs(i - binSearch(aux, i));
+  }
+  return res;
+}
+
+private int binSearch(List<Integer> a, int key) {
+  int l = 0;
+  int h = a.size() - 1;
+  if (key < a.get(l)) {
+    return a.get(l);
+  }
+  if (key > a.get(h)) {
+    return a.get(h);
+  }
+  while (l <= h) {
+    int m = l + (h -l) / 2;
+    if (a.get(m) == key) {
+      return a.get(m);
+    } else if (key < a.get(m)) {
+      h = m - 1;
+    } else {
+      l = m + 1;
+    }
+  }
+  return a.get(l) - key < key - a.get(h) ? a.get(l) : a.get(h);
+  }
+}
+```
+
 ## [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
 ```java
