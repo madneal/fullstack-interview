@@ -1,5 +1,45 @@
 # Leetcode
 
+## [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
+
+```javascript
+var topKFrequent = function(nums, k) {
+  var hash = {};
+  var result = [];
+  for (var i = 0; i < nums.length; i++) {
+    if (!hash[nums[i]]) {
+      hash[nums[i]] = 1;
+    } else {
+      hash[nums[i]]++;
+    }
+  }
+  var listBucket = [];
+  for (var key in hash) {
+    var frequence = hash[key];
+    if (!listBucket[frequence]) {
+      listBucket[frequence] = [];
+    }
+    listBucket[frequence].push(key);
+  }
+  
+  for (var i = listBucket.length; i >= 0; i--) {
+    if (listBucket[i]) {
+      var len = listBucket[i].length;
+      for (var j = 0; j < len; j++) {
+        if (result.length < k) {
+	  result.push(+listBucket[i][j]);
+	} else {
+	  break;
+	 }
+        } 
+      }
+    
+  }
+  return result;
+}
+ ```
+       
+
 ## [Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/description/)
 
 ```java
