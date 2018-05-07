@@ -1,4 +1,37 @@
 # Leetcode
+
+## [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
+```java
+public boolean hasCycle(ListNode head) {
+  if (head == null) {
+    return false;
+  }
+  ListNode slow = head;
+  ListNode fast = head.next;
+  while (slow != null && fast != null && fast.next != null && fast != slow) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return fast != null && slow == fast;
+```
+
+```java
+public boolean hasCycle(ListNode head) {
+  HashMap<ListNode, Integet> hash = new HashMap<ListNode, Integer>();
+  int i = 0;
+  while (head != null) {
+    if (hash.containsKey(head)) {
+      return true;
+    } else {
+      hash.put(head, i);
+      i++;
+    }
+    head = head.next;
+  }
+  return false;
+}
+```
+
 ## [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/description/)
 
 ```java
