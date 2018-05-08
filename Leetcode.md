@@ -1,5 +1,22 @@
 # Leetcode
 
+## [Longest Harmonious Subsequence](https://leetcode.com/problems/longest-harmonious-subsequence/description/)
+
+```java
+public int findLHS(int[] nums) {
+  int max = 0;
+  HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+  Arrays.sort(nums);
+  for (int num: nums) {
+    map.put(num, map.getOrDefault(num, 0) + 1);
+    if (map.containsKey(num - 1)) {
+      max = Math.max(max, map.get(num - 1) + map.get(num));
+    }
+  }
+  return max;
+}
+```
+
 ## [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
 ```java
 public boolean hasCycle(ListNode head) {
