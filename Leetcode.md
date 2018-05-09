@@ -1,5 +1,19 @@
 # Leetcode
 
+## [Base 7](https://leetcode.com/problems/base-7/description/)
+
+```java
+public String convertToBase7(int num) {
+  if (num < 0) {
+    return "-" + convertToBase7(-num);
+  }
+  if (num < 7) {
+    return "" + num;
+  }
+  return convertToBase7(num / 7) + num % 7;
+}
+```
+
 ## [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/description/)
 
 ```java
