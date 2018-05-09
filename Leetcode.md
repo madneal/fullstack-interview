@@ -1,5 +1,48 @@
 # Leetcode
 
+## [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/description/)
+
+```java
+int cnt = 1;
+int max = 0;
+Integer prev = null;
+public int[] findMode(TreeNode root) {
+  if (root == null) {
+    return new int[0];
+  }
+  List<Integer> list = new ArrayList<Integer>();
+  findMax(root, list);
+  int[] result = new int[list.size()];
+  for (int i = 0; i < list.size(); i++) {
+    result[i] = list.get(i);
+  }
+  return result;
+}
+
+private void findMax(TreeNode root, List<Integer> list) {
+  if (root == null) {
+    return;
+  }
+  findMax(root.left, list);
+  if (prev != null) {
+    if (root.val == prev) {
+      cnt++;
+    } else {
+      cnt = 1;
+    }
+  }
+  if (cnt == max) {
+    result.add(root.val);
+  } else if (cnt > max) {
+    max = cnt;
+    result.clear();
+    result.add(root.val);
+  }
+  prev = root.val;
+  findMax(root.right, list);
+}
+```
+
 ## [Longest Harmonious Subsequence](https://leetcode.com/problems/longest-harmonious-subsequence/description/)
 
 ```java
