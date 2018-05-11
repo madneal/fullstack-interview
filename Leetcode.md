@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Single Number III](https://leetcode.com/problems/single-number-iii/description/)
+
+```java
+public int[] singleNumber(int[] nums) {
+  int diff = 0;
+  for (int num: nums) {
+    diff ^= num;
+  }
+  diff &= -diff;
+  int[] result = {0, 0};
+  for (int num: nums) {
+    if ((num & diff) == 0) {
+      result[0] ^= num;
+    } else {
+      result[1] ^= num;
+    }
+  }
+  return result;
+}
+```
+
 ## [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/description/)
 
 ```java
