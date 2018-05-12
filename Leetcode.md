@@ -1,5 +1,17 @@
 # Leetcode
 
+## [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/description/)
+
+```java
+public ListNode removeElements(ListNode head, int val) {
+  if (head == null) {
+    return head;
+  }
+  head.next = removeElements(head.next, val);
+  return head.val == val ? head.next : head;
+}
+```
+
 ## [Single Number III](https://leetcode.com/problems/single-number-iii/description/)
 
 ```java
