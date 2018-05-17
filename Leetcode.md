@@ -1,5 +1,42 @@
 # Leetcode
 
+## [Permutations II](https://leetcode.com/problems/permutations-ii/description/)
+
+```java
+public List<List<Integer>> permuteUnique(int[] nums) {
+  List<List<Integer>> result = new ArrayList<List<Integer>>();
+  if (nums == null || nums.length == 0) {
+    return result;
+  }
+  boolean[] used = new boolean[nums.length];
+  Arrays.sort(nums);
+  List<Integer> list = new ArrayList<Integer>();
+  dfs(nums, used, list, result);
+  return result;
+}
+
+private void dfs (int[] nums, boolean[] used, List<Integer> list, List<List<Integer>> result) {
+  if (nums.length == list.size()) {
+    result.add(new ArrayList<Integer>(list));
+    return;
+  }
+  for (int i = 0; i < nums.length; i++) {
+    if (used[i]) {
+      continue;
+    }
+    if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+      continue;
+    }
+    used[i] = true;
+    list.add(nums[i]);
+    dfs(nums, used, list, result);
+    used[i] = false;
+    list.remove(list.size() - 1);
+  }
+}
+```
+  
+
 ## [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
 
 ```java 
