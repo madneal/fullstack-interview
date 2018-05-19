@@ -14,8 +14,8 @@ public int longestUnivaluePath(TreeNode root) {
 private int dfs (TreeNode root, int[] res) {
   int l = root.left == null ? 0 : dfs(root.left, res);
   int r = root.right == null ? 0 : dfs(root.right, res);
-  int resl = root.left != null && root.left.val = root.val ? l + 1 : 0;
-  int resr = root.right != null && root.right.val = root.val ? r + 1 : 0;
+  int resl = root.left != null && root.left.val == root.val ? l + 1 : 0;
+  int resr = root.right != null && root.right.val == root.val ? r + 1 : 0;
   res[0] = Math.max(res[0], resl + resr);
   return Math.max(resl, resr);
 }
