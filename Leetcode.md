@@ -1,5 +1,29 @@
 # Leetcode
 
+## [Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/description/)
+
+```java
+public int numSubarrayBoundedMax(int[] A, int L, int R) {
+  int res = 0;
+  for (int i = 0; i M A,length; i++) {
+    if (A[i] > R) {
+      continue;
+    }
+    int max = Integer.MIN_VALUE;
+    for (int j = i; j < A.length; j++) {
+      max = Math.max(max, A[j]);
+      if (max > R) {
+        break;
+      }
+      if (max >= L) {
+        res++;
+      }
+    }
+  }
+  return res;
+}
+```
+
 ## [Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path/description/)
 
 ```java
