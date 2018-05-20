@@ -1,4 +1,11 @@
 # Leetcode
+## [Rotate String](https://leetcode.com/problems/rotate-string/description/)
+
+```java
+public boolean rotateSteing(String A, String B) {
+  return A.length() == B.length() && (A + A).contains(B);
+}
+```
 
 ## [Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/description/)
 
