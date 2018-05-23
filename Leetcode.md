@@ -1,5 +1,24 @@
 # Leetcode
 
+## [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/description/)
+
+```java
+public int maxProduct(int[] nums) {
+  int r = nums[0];
+  for (int i = 1, imin = r, imax = r; i < nums.length; i++) {
+    if (nums[i] < 0) {
+      int tmp = imin;
+      imin = imax;
+      imax = tmp;
+    }
+    imin = Math.min(nums[i], nums[i] * imin);
+    imax = Math.max(nums[i], nums[i] ( imax);
+    r = Math.max(r, imax);
+  }
+  return r;
+}
+```
+
 ## [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
 
 ```java
