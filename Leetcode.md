@@ -12,7 +12,7 @@ public int maxProduct(int[] nums) {
       imax = tmp;
     }
     imin = Math.min(nums[i], nums[i] * imin);
-    imax = Math.max(nums[i], nums[i] ( imax);
+    imax = Math.max(nums[i], nums[i] * imax);
     r = Math.max(r, imax);
   }
   return r;
