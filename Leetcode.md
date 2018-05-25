@@ -1,5 +1,29 @@
 # Leetcode
 
+## [Happy Number](https://leetcode.com/problems/happy-number/description/)
+
+```java
+public boolean isHappy(int n) {
+  Set<Integer> loop = new HashSet<Integer>();
+  int squareSum, remain;
+  while (loop.add(n)) {
+    squareSum = 0;
+    while (n > 0) {
+      remain = n % 10;
+      squareSum += remain * remain;
+      n /= 10;
+    }
+    if (squareSum == 1) {
+      return true;
+    } else {
+      n = squareSum;
+    }
+  }
+  return false;
+}
+```
+      
+
 ## [Custom Sort String](https://leetcode.com/problems/custom-sort-string/description/)
 
 ```java
