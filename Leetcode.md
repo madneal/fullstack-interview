@@ -1,5 +1,42 @@
 # Leetcode
 
+## [Most Frequent Subtree Sum](https://leetcode.com/problems/most-frequent-subtree-sum/description/)
+
+```java
+public int[] findFrequentTreeSum(TreeNode root) {
+  HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+  sum(root, map);
+  List<Integer> list = new ArrayList<Integer>();
+  int max = 0;
+  for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+    int val = map.getValue();
+    if (val >= max) {
+      if (val > max) {
+        list.clear();
+	max = val;
+      }
+      list.add(val);
+    }
+  }
+  int[] res = new int[list.size()];
+  for (int i = 0; i < list.size(); i++) {
+    res[i] = list.get(i);
+  }
+  return res;
+}
+
+private int sum(TreeNode root, HashMap<Integer, Integer> map) {
+  if (root == null) {
+    return 0;
+  }
+  int left = sum(root.left, map);
+  int right = sum(root.right, map);
+  int sum = left + right + root.val;
+  map.put(sum, map.getOrDefault(sum, 0) + 1);
+  return sum;
+}
+```
+
 ## [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/description/)
 
 ```java
