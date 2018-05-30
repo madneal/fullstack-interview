@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
+
+```java
+public int lengthOfLTS(int[] nums) {
+  int[] dp = new int[nums.length];
+  int len = 0;
+  
+  for (int x:nums) {
+    int i = Arrays.binarySearch(dp, 0, len, x);
+    if (i < 0) {
+      i = -(i + 1);
+    }
+    dp[i] = x;
+    if (i == len) {
+      len++;
+    }
+  }
+  return len;
+}
+```
+
 ## [Most Frequent Subtree Sum](https://leetcode.com/problems/most-frequent-subtree-sum/description/)
 
 ```java
