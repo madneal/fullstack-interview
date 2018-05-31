@@ -1,5 +1,20 @@
 # Leetcode
 
+## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
+
+```java
+public ListNode reverseList(ListNode head) {
+  ListNode pre = null;
+  while(head != null) {
+    ListNode next = head.next;
+    head.next = pre;
+    pre = head;
+    head = next;
+  }
+  return pre;
+}
+```
+
 ## [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
 
 ```java
