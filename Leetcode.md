@@ -1623,18 +1623,9 @@ func minimumTotal([][]int triangle) int {
 }
 ```
 
-## 1.Serialize and deserialize binary tree
+## Serialize and deserialize binary tree
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 public class Codec {
     private static final String NN = "x";
     private static final String splitor = ",";
@@ -1677,7 +1668,7 @@ public class Codec {
 }
 ```
 
-## 2.Intersection of two arrays
+## Intersection of two arrays
 
 ```java
 public class Solution {
@@ -1709,7 +1700,7 @@ public class Solution {
 }
 ```
 
-## 3.Intersection of two arrays II
+## Intersection of two arrays II
 
 ```java
 public class Solution {
@@ -1743,7 +1734,7 @@ public class Solution {
 }
 ```
 
-## 4.Third maximum number
+## Third maximum number
 
 ```java
 public class Solution {
@@ -1767,7 +1758,7 @@ public class Solution {
 }
 ```
 
-## 5.Reverse vowels of a string
+## Reverse vowels of a string
 
 ```java
 public class Solution {
@@ -1797,7 +1788,7 @@ public class Solution {
 }
 ```
 
-## 6.Missing number
+## Missing number
 
 ```java
 public class Solution {
@@ -1812,18 +1803,9 @@ public class Solution {
 }
 ```
 
-## 7.Path sum
+## Path sum
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 public class Solution {
     public boolean hasPathSum(TreeNode root, int sum) {
         if (root == null) {
@@ -1838,18 +1820,9 @@ public class Solution {
 }
 ```
 
-## 8.Path sumII
+## Path sumII
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 public class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> result = new ArrayList<>();
@@ -1874,7 +1847,7 @@ public class Solution {
 }
 ```
 
-## 9.Path sum III
+## Path sum III
 
 ```java
 /**
@@ -1909,7 +1882,7 @@ public class Solution {
 }
 ```
 
-## 10. Sum of left leaves
+## Sum of left leaves
 
 ```java
 /**
@@ -1942,7 +1915,7 @@ public class Solution {
 }
 ```
 
-## 11.First Unique character in a string
+## First Unique character in a string
 
 ```java
 public class Solution {
@@ -1990,22 +1963,23 @@ public class Solution {
 }
 ```
 
-## 13.Two sum II - input array is sorted
+## Two sum II - input array is sorted
 
 ```java
-public class Solution {
-    public int[] twoSum(int[] numbers, int target) {
-        int[] indices = new int[2];
-        if (numbers == null || numbers.length < 2) {
-            return indices;
-        }
-        int left = 0, right = numbers.length - 1;
-        while (left < right) {
-            int v = numbers[left] + numbers[right];
-            if (v == target) {
-                indices[0] = left + 1;
-                indices[1] = right + 1;
-                break;
-            } else if (v > target) {
-                right--;
-            }
+public int[] twoSum(int[] numbers, int target) {
+  int[] indices = new int[2];
+  if (numbers == null || numbers.length < 2) {
+    return indices;
+  }
+  int left = 0, right = numbers.length - 1;
+  while (left < right) {
+  int v = numbers[left] + numbers[right];
+  if (v == target) {
+    indices[0] = left + 1;
+    indices[1] = right + 1;
+    break;
+  } else if (v > target) {
+    right--;
+  }
+}
+```
