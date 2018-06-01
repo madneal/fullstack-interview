@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)
+
+```java
+public int characterReplacement(String s, int k) {
+  int len = s.length();
+  int[] count = new int[26];
+  int maxCount = 0;
+  int maxLen = 0;
+  int start = 0;
+  for (int end = 0; end < len; end++) {
+    maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']);
+    while (end - start + 1 - maxCount > k) {
+      count[s.charAt(start) - 'A']--;
+      start++;
+    }
+    maxLen = Math.max(maxLen, end - start + 1);
+  }
+  return maxLen;
+}
+```
+
 ## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/description/)
 
 ```java
