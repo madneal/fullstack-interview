@@ -1,5 +1,21 @@
 # Leetcode
 
+## [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
+
+```java
+TreeNode pre = null;
+public void flatten(TreeNode root) {
+  if (root == null) {
+    return;
+  }
+  flatten(root.right);
+  flatten(root.left);
+  root.right = pre;
+  root.left = null;
+  pre = root;
+}
+```
+
 ## [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)
 
 ```java
