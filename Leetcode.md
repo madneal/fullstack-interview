@@ -1,5 +1,28 @@
 # Leetcode
 
+## [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)
+
+```java
+public int lengthOfLongestSubstring(String s) {
+  int len = s.length();
+  if (len == 0) {
+   return 0;
+  }
+  HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+  int max = 0;
+  for (int i = 0, j = 0; i < len; i++) {
+    Character c = s.charAt(i);
+    if (map.containsKey(c)) {
+      j = Math.max(j, map.get(c) + 1);
+    }
+    map.put(c, i);
+    max = Math.max(max, i - j + 1);
+  }
+  return max;
+}
+```
+ 
+
 ## [Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/description/)
 
 ```java
