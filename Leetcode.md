@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes/description/)
+
+```java
+Integer res = Integer.MAX_VALUE;
+Integer pre = null;
+public int minDiffInBST(TreeNode root) {
+  if (root.left != null) {
+    minDiffInBST(root.left);
+  }
+  if (pre != null) {
+    res = Math.min(res, root.val - pre);
+  }
+  pre = root.val;
+  if (root.right != null) {
+    minDiffInBST(root.right);
+  }
+  return res;
+}
+```
+
+
 ## [House Robber II](https://leetcode.com/problems/house-robber-ii/description/)
 
 ```java
