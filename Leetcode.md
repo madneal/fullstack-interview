@@ -2,7 +2,7 @@
 
 ## [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
 
-``java
+```java
 public TreeNode buildTree(int[] inorder, int[] postorder) {
   if (inorder == null || postorder == null || inorder.length != postorder.length) {
     return null;
