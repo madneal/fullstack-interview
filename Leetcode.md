@@ -1,5 +1,33 @@
 # Leetcode
 
+## [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
+
+``java
+public TreeNode buildTree(int[] inorder, int[] postorder) {
+  if (inorder == null || postorder == null || inorder.length != postorder.length) {
+    return null;
+  }
+  HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+  for (int i = 0; i < inorder.length; i ++) {
+    map.put(inorder[i], i);
+  }
+  return buildPostIn(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1, map);
+}
+
+private TreeNode buildPostIn(int[] inorder, int is, int ie, int[] postorder, int ps, int pe, HashMap<Integer, Integer> map) {
+  if (ps > pe || is > ie) {
+    return null;
+  }
+  TreeNode root = new TreeNode(postorder[pe]);
+  int index = map.get(postorder[pe]);
+  TreeNode left = buildPostIn(inorder, is, index - 1, postorder, ps, ps + index - is - 1, map);
+  TreeNode right = buildPostIn(inorder, index + 1, ie, postorder, ps + index - is, pe - 1, map);
+  root.left = left;
+  root.right = right;
+  return root;
+}
+```
+
 ## [Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes/description/)
 
 ```java
