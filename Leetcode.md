@@ -1,5 +1,34 @@
 # Leetcode
 
+## [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
+
+```java
+public List<List<Integer>> levelOrder(TreeNode root) {
+  List<List<Integer>> result = new LinkedList<List<Integer>>();
+  if (root == null) {
+    return result;
+  }
+  Queue<TreeNode> q = new LinkedList<TreeNode>();
+  q.offer(root);
+  while (!q.isEmpty()) {
+    int levelNum = q.size();
+    List<Integer> subList = new LinkedList<Integer>();
+    for (int i = 0; i < levelNum; i++) {
+      if (q.peek().left != null) {
+        q.offer(q.peek().left);
+      }
+      if (q.peek().right != null) {
+        q.offer(q.peek().right);
+      }
+      subList.add(q.poll().val);
+    }
+    result.add(subList);
+  }
+  return result;
+}
+```
+      
+
 ## [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/description/)
 
 ```java
