@@ -1,5 +1,36 @@
 # Leetcode
 
+## [Find Largest Value in Each Tree Row](https://leetcode.com/problems/find-largest-value-in-each-tree-row/description/)
+
+```java
+public List<Integer> largestValues(TreeNode root) {
+  List<Integer> result = new ArrayList<Integer>();
+  if (root == null) {
+    return result;
+  }
+  Queue<TreeNode> q = new LinkedList<TreeNode>();
+  q.offer(root);
+  while (!q.isEmpty()) {
+    int levelNum = q.size();
+    int maxVal = q.peek().val;
+    for (int i = 0; i < levelNum; i++) {
+      if (q.peek().left != null) {
+        q.offer(q.peek().left);
+      }
+      if (q.peek().right != null) {
+        q.offer(q.peek().right);
+      }
+      int val = q.poll().val;
+      if (val > maxVal) {
+        maxVal = val;
+      }
+    }
+    result.add(maxVal);
+  }
+  return result;
+}
+```
+
 ## [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
 
 ```java
