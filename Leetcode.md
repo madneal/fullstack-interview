@@ -1,5 +1,21 @@
 # Leetcode
 
+## [Ugly Number](https://leetcode.com/problems/ugly-number/description/)
+
+```java
+public boolean isUgly(int num) {
+  if (num <= 0) {
+    return false;
+  }
+  for (int i = 2; i < 6; i++) {
+    while (num % i == 0) {
+      num /= i;
+    }
+  }
+  return num == 1;
+}
+```
+
 ## [Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
 
 ```java
