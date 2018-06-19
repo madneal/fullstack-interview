@@ -1,5 +1,32 @@
 # Leetcode
 
+## [Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/description/)
+
+```java
+public List<String> letterCasePermutation(String S) {
+  if (S == null) {
+    return new LinkedList<>();
+  }
+  Queue<String> q = new LinkedList<>();
+  q.offer(S);
+  for (int i = 0; i < S.length(); i++) {
+    if (Character.isDigit(S.charAt(i))) {
+      continue;
+    }
+    int n = q.size();
+    for (int j = 0; j < n; j++) {
+      String cur = q.poll();
+      char[] chs = cur.toCharArray();
+      chs[i] = Character.toUpperCase(chs[i]);
+      q.offer(String.valueOf(chs));
+      chs[i] = Character.toLowerCase(chs[i]);
+      q.offer(String.valueOf(chs));
+    }
+  }
+  return new LinkedList<>(q);
+}
+```
+
 ## [Ugly Number](https://leetcode.com/problems/ugly-number/description/)
 
 ```java
