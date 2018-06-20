@@ -1632,17 +1632,6 @@ public List<List<Integer>> levelOrderBottom(TreeNode root) {
 ## [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
 
 ```javascript
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[]}
- */
 var inorderTraversal = function(root) {
   var stack = [];
   var result = [];
@@ -1664,14 +1653,6 @@ var inorderTraversal = function(root) {
 ## [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
 
 ```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
 func minDepth(root *TreeNode) int {
   if root == nil {
     return 0
@@ -1695,10 +1676,6 @@ func minDepth(root *TreeNode) int {
 ## [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
 
 ```javascript
-/**
- * @param {string} s
- * @return {boolean}
- */
 var isValid = function(s) {
   var stack = [];
   
@@ -1721,10 +1698,6 @@ var isValid = function(s) {
 ## [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/description/)
 
 ```javascript
-/**
- * @param {string} s
- * @return {string}
- */
 var reverseWords = function(s) {
   var result = "";
   var words = s.split(' ');
@@ -1773,8 +1746,6 @@ func setZeros(matrix [][]int) {
 }
 ```
     
-
-
 ## [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/description/)
 
 ```go
@@ -1801,8 +1772,6 @@ func oddEvenList(head *ListNode) *ListNode {
   return head
 }
 ```
-
-
 
 ## [Single Number II](https://leetcode.com/problems/single-number-ii/description/)
 
@@ -2285,15 +2254,6 @@ public class Solution {
 ## Path sum III
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 public class Solution {
     public int pathSum(TreeNode root, int sum) {
         if (root == null) {
@@ -2320,15 +2280,6 @@ public class Solution {
 ## Sum of left leaves
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 public class Solution {
     public int sumOfLeftLeaves(TreeNode root) {
         int ans = 0;
@@ -2376,7 +2327,7 @@ public class Solution {
 }
 ```
 
-## 12. Two sum
+## Two sum
 
 ```java
 public class Solution {
