@@ -1,5 +1,27 @@
 # Leetcode
 
+## [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
+
+```java
+int maxVal;
+public int maxPathSum(TreeNode root) {
+  maxVal = Integer.MIN_VALUE;
+  maxPathDown(root);
+  return maxVal;
+}
+
+private int maxPathDown(TreeNode root) {
+  if (root == null) {
+    return 0;
+  }
+  int left = Math.max(0, maxPathDown(root.left));
+  int right = Math.max(0, maxPathDown(root.right));
+  maxVal = Math.max(maxVal, left + right + root.val);
+  return Math.max(left, right) + root.val;
+}
+```
+
+
 ## [Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/description/)
 
 ```java
