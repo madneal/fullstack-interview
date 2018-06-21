@@ -1764,13 +1764,6 @@ func setZeros(matrix [][]int) {
 ## [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/description/)
 
 ```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 func oddEvenList(head *ListNode) *ListNode {
   if head != nil {
     odd := head
