@@ -1,6 +1,6 @@
 # Leetcode
 
-##[Coin Change 2](https://leetcode.com/problems/coin-change-2/description/)
+## [Coin Change 2](https://leetcode.com/problems/coin-change-2/description/)
 
 ```java
 public int change(int amount, int[] coins) {
