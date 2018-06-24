@@ -1,5 +1,17 @@
 # Leetcode
 
+## [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/description/)
+
+```java
+public boolean isPerfectSquare(int num) {
+  long x = num;
+  while (x * x > num) {
+    x = (x + num / x) >> 1;
+  }
+  return x * x == num;
+}
+```
+
 ## [4Sum II](https://leetcode.com/problems/4sum-ii/description/)
 
 ```java
