@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
+
+```java
+public void connect(TreeLinkNode root) {
+  TreeLinkNode pre = root;
+  while (pre != null) {
+    TreeLinkNode cur = pre;
+    while (cur != null) {
+      if (cur.left != null) {
+        cur.left.next = cur.right;
+      }
+      if (cur.right != null && cur.next != null) {
+        cur.right.next = cur.next.left;
+      }
+      cur = cur.next;
+    }
+    pre = pre.left;
+  }
+}
+```
+
 ## [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/description/)
 
 ```java
