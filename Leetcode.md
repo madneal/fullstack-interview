@@ -1,5 +1,28 @@
 # Leetcode
 
+## [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers/description/)
+
+```java
+public List<Integer> lexicalOrder(int n) {
+  int cur = 1;
+  List<Integer> list = new ArrayList<Integer>();
+  for (int i = 1; i <= n; i++) {
+    list.add(cur);
+    if (cur * 10 <= n) {
+      cur *= 10;
+    } else if (cur % 10 != 9 && cur + 1 <= n) {
+      cur++:
+    } else {
+      while ((cur /10) % 10 == 9) {
+        cur /= 10;
+      }
+      cur = cur / 10 + 1;
+    }
+  }
+  return list;
+}
+```
+
 ## [Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/description/)
 
 ```java
