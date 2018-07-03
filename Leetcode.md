@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
+
+```java
+public int[] nextGreaterElements(int[] nums) {
+  int n = nums.length;
+  int[] next = new int[n];
+  Stack<Integer> s = new Stack<Integer>();
+  Arrays.fill(next, -1);
+  for(int i = 0; i < n * 2; i++) {
+    int num = nums[i % n];
+    while (!s.isEmpty() && nums[s.peek()] < num) {
+      next[s.pop()] = num;
+    }
+    if (i < n) {
+      s.push(i);
+    }
+  }
+  return next;
+}
+```
+
 ## [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers/description/)
 
 ```java
