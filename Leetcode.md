@@ -1,5 +1,28 @@
 # Leetcode
 
+## [Target Sum](https://leetcode.com/problems/target-sum/description/)
+
+```java
+public int findTargetSumWays(int[] nums, int S) {
+  int sum = 0;
+  for (int num: nums) {
+    sum += num;
+  }
+  return sum < S || (S + sum) % 2 != 0 ? 0 : subsetSum(nums, (sum + S) / 2);
+}
+
+private int subsetSum(int[] nums, int s) {
+  int[] dp = new int[s + 1];
+  dp[0] = 1;
+  for (int num: nums) {
+    for (int i = s; i >= num; i--) {
+      dp[i] += dp[i - num];
+    }
+  }
+  return dp[s];
+}
+```
+    
 ## [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
 
 ```java
