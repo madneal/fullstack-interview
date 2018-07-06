@@ -1,5 +1,19 @@
 # Leetcode
 
+## [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+
+```java
+public int maxProfit(int[] prices) {
+  int maxCur = 0;
+  int maxSofar = 0;
+  for (int i = 1; i < prices.length; i++) {
+    maxCur = Math.max(0, maxCur += prices[i] - prices[i - 1]);
+    maxSofar = Math.max(maxCur, maxSofar);
+  }
+  return maxSofar;
+}
+```
+
 ## [Target Sum](https://leetcode.com/problems/target-sum/description/)
 
 ```java
