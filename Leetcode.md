@@ -1,5 +1,20 @@
 # Leetcode
 
+## [2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard/description/)
+
+```java
+public int minSteps(int n) {
+  int res = 0;
+  for (int i = 2; i <= n; i++) {
+    while (n % i == 0) {
+      res += i;
+      n /= i;
+    }
+  }
+  return res;
+}
+```
+
 ## [Majority Element](https://leetcode.com/problems/majority-element/description/)
 
 ```java
