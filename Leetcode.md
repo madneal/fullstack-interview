@@ -1,5 +1,24 @@
 # Leetcode
 
+## [Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/description/)
+
+```java
+public int matrixScore(int[][] A) {
+  int m = A.length;
+  int n = A[0].length;
+  int res = (1 << (n - 1)) * m;
+  for (int j = 1; j < n; j ++) {
+    int cur = 0;
+    for (int i = 0; i < m; i++) {
+      cur += A[i][j] == A[i][0] ? 1 : 0;
+    }
+    res += Math.max(cur, m - cur) * (1 << (n -j - 1));
+  }
+  return res;
+}
+```
+
+
 ## [2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard/description/)
 
 ```java
