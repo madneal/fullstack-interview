@@ -1,5 +1,32 @@
 # Leetcode
 
+## [Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths/description/)
+
+```java
+public int maxProduct(String[] words) {
+  if (words == null || words.length == 0) {
+    return 0;
+  }
+  int len = words.length;
+  int[] value = new int[len];
+  for (int i = 0; i < len; i++) {
+    String tmp = words[i];
+    for (int j = 0; j < tmp.length(); j++) {
+      value[i] |= 2 << (tmp.charAt(j) - 'a');
+    }
+  }
+  int maxProduct = 0;
+  for (int i = 0; i < len; i++) {
+    for (int j = i + 1; j < len; j ++) {
+      if ((value[i] & value[j]) == 0 && words[i].length() * words[j].length() > maxProduct) {
+        maxProduct = words[i].length() * words[j].length();
+      }
+    }
+  }
+  return maxProduct;
+}
+```
+
 ## [Perfect Squares](https://leetcode.com/problems/perfect-squares/description/)
 
 ```java
