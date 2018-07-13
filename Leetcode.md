@@ -16,9 +16,10 @@ public boolean judgeCircle(String moves) {
     } else if (c == 'D') {
 	y--;
     }
-}
+  }
   return x == 0 && y == 0;
 }
+```
 
 ## [Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths/description/)
 
