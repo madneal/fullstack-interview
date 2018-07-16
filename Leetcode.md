@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/description/)
+
+```java
+public List<Integer> rightSideView(TreeNode root) {
+  List<Integer> result = new ArrayList<Integer>();
+  rightView(root, result, 0);
+  return result;
+}
+
+private void rightView(TreeNode cur, List<Integer> result, int curDepth) {
+  if (cur == null) {
+    return;
+  }
+  if (curDepth == result.size()) {
+    result.add(cur.val);
+  }
+  rightView(cur.right, result, curDepth + 1);
+  rightView(cur.left, result, curDepth + 1);
+}
+```
+
 ## [Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/)
 
 ```java
