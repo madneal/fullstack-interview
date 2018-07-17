@@ -1,5 +1,30 @@
 # Leetcode
 
+## [Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/description/)
+
+```java
+public int longestMountain(int[] A) {
+  int n = A.length;
+  int res = 0;
+  int[] up = new int[n];
+  int[] down = new int[n];
+  for (int i = n - 2; i >= 0; i--) {
+    if (A[i] > A[i + 1]) {
+      down[i] = down[i + 1] + 1;
+    }
+  }
+  for (int j = 0; i < n; j++) {
+    if (j > 0 && A[j - 1] < A[j]) {
+      up[j] = up[j - 1] + 1;
+    }
+    if (up[j] > 0 && down[j] > 0) {
+      res = Math.max(res, up[j] + down[j] + 1);
+    }
+  }
+  return res;
+}
+```
+
 ## [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/description/)
 
 ```java
