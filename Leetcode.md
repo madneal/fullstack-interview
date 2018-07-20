@@ -1,5 +1,27 @@
 # Leetcode
 
+## [Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/description/)
+
+```java
+public int countBinarySubstrings(String s) {
+  int prevRunLength = 0;
+  int curRunLength = 1;
+  int res = 0;
+  for (int i = 1; i < s.length(); i++) {
+    if (s.charAt(i) == s.charAt(i -1)) {
+      curRunLength++;
+    } else {
+      prevRunLength = curRunLength;
+      curRunLength = 1;
+    }
+    if (prevRunLength >= curRunLength) {
+      res++;
+    }
+  }
+  return res;
+}
+```
+
 ## [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
 
 ```java
