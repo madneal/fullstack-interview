@@ -1,5 +1,43 @@
 # Leetcode
 
+## [Course Schedule](https://leetcode.com/problems/course-schedule/description/)
+
+```java
+public boolean canFinish(int numCourses, int[][] prerequisities) {
+  int[][] matrix = new int[numCourses][numCourses];
+  int[] indegree = new int[numCourses];
+  
+  for (int i = 0; i < prerequisities.length; i++) {
+    int ready = prerequisities[i][0];
+    int pre = prerequisities[i][1];
+    if (matrix[pre][ready] == 0) {
+      indegree[ready]++;
+    }
+    matrix[pre][ready] = 1;
+  }
+  
+  int count = 0;
+  Queue<Integer> queue = new LinkedList();
+  for (int i = 0; i < indegree.length; i++) {
+    if (indegree[i] == 0) {
+      queue.offer(i);
+    }
+  }
+  while(!queue.isEmpty()) {
+    int course = queue.poll();
+    count++;
+    for (int i = 0; i < numCourses; i++) {
+      if (matrix[course][i] != 0) {
+        if (--indegree[i] == 0) {
+	  queue.offer(i);
+	}
+      }
+    }
+  }
+  return count == numCourses;
+}
+```
+
 ## [Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/description/)
 
 ```java
