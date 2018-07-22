@@ -2,7 +2,7 @@
 
 ## [Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
 
-``java
+```java
 public List<List<String>> groupAnagrams(String[] strs) {
   List<List<String>> result = new ArrayList<>();
   if (strs == null || strs.length == 0) {
