@@ -1,5 +1,27 @@
 # Leetcode
 
+## [Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
+
+``java
+public List<List<String>> groupAnagrams(String[] strs) {
+  List<List<String>> result = new ArrayList<>();
+  if (strs == null || strs.length == 0) {
+    return result;
+  }
+  HashMap<String, List<String>> map = new HashMap<>();
+  for (String s: strs) {
+    char[] arr = s.toCharArray();
+    Arrays.sort(arr);
+    String str = String.valueOf(arr);
+    if (!map.containsKey(str)) {
+      map.put(str, new ArrayList<String>());
+    }
+    map.get(str).add(s);
+  }
+  return new ArrayList<List<String>>(map.values());
+}
+```
+
 ## [Course Schedule](https://leetcode.com/problems/course-schedule/description/)
 
 ```java
