@@ -1,5 +1,17 @@
 # Leetcode
 
+## [Single Num](https://leetcode.com/problems/single-number/description/)
+
+```java
+public int SingleNumber(int[] nums) {
+  int result = 0;
+  for (int i = 0; i < nums.length; i++) {
+    result ^= nums[i];
+  }
+  return result;
+}
+```
+
 ## [Permutations](https://leetcode.com/problems/permutations/description/)
 
 ```java
