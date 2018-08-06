@@ -1,5 +1,26 @@
 # Leetcode
 
+## [Positions of Large Groups](https://leetcode.com/problems/positions-of-large-groups/description/)
+
+```java
+public List<List<Integer>> largeGroupPositions(String S) {
+  int startIndex = 0;
+  int endIndex = 0;
+  int n = S.length();
+  List<List<Integer>> res = new ArrayList<>();
+  while (endIndex < n) {
+    while (endIndex - startIndex >= 3 && S.charAt(endIndex) == S.charAt(endIndex)) {
+      endIndex++;
+    }
+    if (endIndex - startIndex >= 3) {
+      res.add(new ArrayList(Arrays.asList(startIndex, endIndex - 1);
+    }
+    startIndex = endIndex;
+  }
+  return res;
+}
+```
+
 ## [Max Area of Island](https://leetcode.com/problems/max-area-of-island/description/)
 
 ```java
