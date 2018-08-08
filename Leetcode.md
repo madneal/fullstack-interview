@@ -1,5 +1,30 @@
 # Leetcode
 
+## [Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work/description/)
+
+```java
+public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
+  TreeMap<Integer, Integer> tmap = new TreeMap<>();
+  for (int i = 0; i < difficulty.length; i++) {
+    tmap.put(difficulty[i], Math.max(profit[i],tmap.getOrDefault(difficulty[i], 0)));
+  }
+  int res = 0;
+  int max = 0;
+  for (Integer key: tmap.keySet()) {
+    max = Math.max(tmap.get(key), max);
+    tmap.put(key, max);
+  }
+  Map.Entry<Integer, Integer> entry = null;
+  for (int i = 0; i < worker.length; i++) {
+    entry = tmap.floorEntry(worker[i]);
+    if (entry != null) {
+      res += entry.getValue();
+    }
+  }
+  return res;
+}
+```
+
 ## [Positions of Large Groups](https://leetcode.com/problems/positions-of-large-groups/description/)
 
 ```java
