@@ -1,5 +1,21 @@
 # Leetcode
 
+## [Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/description/)
+
+```java
+public int minMoves2(int[] nums) {
+  int count = 0;
+  int i = 0; 
+  int j = nums.length - 1;
+  while (i < j) {
+    count += nums[j] - nums[i];
+    i++;
+    j--;
+  }
+  return count;
+}
+```
+
 ## [Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work/description/)
 
 ```java
