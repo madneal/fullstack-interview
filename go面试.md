@@ -7,3 +7,8 @@
 ## make
 
 make 仅仅作用于 map, slice, 以及 channel，不会返回指针
+
+## map 取键值
+
+map 取键值，如果某个键不存在，一般会返回 0 值。那么如果将这种场景和真正的 0 值区分：
+`seconds, ok := timezone['tk']`
