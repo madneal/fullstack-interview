@@ -1,3 +1,38 @@
+## 用 slice 模拟栈
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+var stack []int
+
+func main() {
+	for i := 0; i < 5; i++ {
+		push(i)
+	}
+	fmt.Println(stack)
+	pop()
+	fmt.Println(stack)
+	
+}
+
+func push(value int) {
+	stack = append(stack, value)
+}
+
+func pop() int {
+	if len(stack) == 0 {
+		return -1
+	}
+	val := stack[len(stack)-1]
+	stack = stack[:len(stack)-1]
+	return val
+}
+```
+
 ## len() 和 cap()
 
 * len() 可以用来查看数组或 slice 的长度
