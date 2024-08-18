@@ -1,3 +1,19 @@
+## map 打印
+
+```go
+package main
+import "fmt"
+func main() {
+	a := map[int]int{0: 1, 1: 2, 2: 3, 3: 4, 4: 5}
+	for _, c := range a {
+		fmt.Println(c)
+	}
+}
+```
+
+这段代码的输出结果是什么样的
+
+
 ## 用 slice 模拟栈
 
 ```go
