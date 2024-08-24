@@ -1,3 +1,29 @@
+## 调用 defer 错误
+
+```go
+package main
+
+import (
+	"log"
+	"os"
+)
+
+func main() {
+	for i := 0; i < 5; i++ {
+		f, err := os.Open("/path/to/file")
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer f.Close()
+	}
+
+	zero := 0
+	println(1 / zero) 
+}
+```
+
+程序执行到这里异常退出，那么上面的循环中打开的 5 个文件句柄全部无法泄露
+
 ## map 打印
 
 ```go
