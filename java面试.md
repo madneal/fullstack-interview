@@ -1,5 +1,9 @@
 # java面试
 
+## java 序列化流的特征
+
+0xACED
+
 ## HashMap 如何实现顺序插入，顺序读取
 
 通过 LinkedHashMap 来实现
